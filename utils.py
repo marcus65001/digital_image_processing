@@ -1,4 +1,5 @@
 import numpy as np
+import scipy.ndimage
 from scipy import ndimage
 
 def inp_mat(built_in=False):
@@ -51,6 +52,10 @@ def d2(mat,b='constant'):
 def box(mat,size=3,b='reflect'):
     fil=np.ones((size,size))
     return conv(mat, fil, mode=b)
+
+
+def median_filter(mat,size=3,mode="reflect"):
+    return ndimage.median_filter(mat,size=size,mode=mode)
 
 
 def seq_frac():
